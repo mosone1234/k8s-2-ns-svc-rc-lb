@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: wordpress
+spec:
+  replicas: 1
+  template:
+    labels:
+      role: wordpress
+    spec:
+      containers:
+      - name: wordpress 
+        image: wordpress:php7.2-apache
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 80
